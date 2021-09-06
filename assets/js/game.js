@@ -66,20 +66,21 @@ var fight = function(enemy) {
     }
 };
 
-// Game States
-// "WIN" - Player robot has defeated all enemy-robots
-// * Fight all enemy-robots - done
-// * Defeat all enemy-robots - done
-// "LOSE" - Player robot's health is zero or less
-// Play again feature
-// * Option to play again
-// Store Feature
-// * Option to buy health or attack
-// * Option to leave the store
+// function to set name
+var getPlayerName = function() {
+    var name = "";
+
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your Robot's name is " + name);
+    return name;
+}
 
 // Player info
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
@@ -133,7 +134,7 @@ var startGame = function() {
         if (playerInfo.health > 0) {
             //let player know what round they are in
             window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
-    
+
             //pick new enemy to fight
             var pickedEnemyObj = enemyInfo[i];
     
